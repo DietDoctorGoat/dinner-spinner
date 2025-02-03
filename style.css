@@ -15,7 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px; /* Optional: Set a fixed width for better layout */
-    min-height: 330px; /* Set a minimum height to prevent jumping */
+    min-height: 380px; /* Set a minimum height to prevent jumping */
 
   }
   

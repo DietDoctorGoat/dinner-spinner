@@ -51,36 +51,82 @@ const dinners = [
     "Slow cooker chicken tinga",
     
   ];
+
+  const sweets = [
+    "Ice Cream",
+    "Chocolate Cake",
+    "Cookies",
+    "Cheesecake",
+    "Brownies",
+    "Donuts",
+    "Pie",
+    "Cupcakes",
+    "Pudding",
+    "Fruit Tart"
+  ];
   
-  // Get references to the button and result elements
-  const pickDinnerButton = document.getElementById("pick-dinner");
-  const resultElement = document.getElementById("result");
-  
-  // Function to pick a random dinner
-  function pickDinner() {
-    resultElement.textContent = ""; // Clear the result text
-  
-    // Set the duration for the "randomization" effect (in milliseconds)
-    const duration = 900; // 900 milliseconds
-    const intervalTime = 50; // Time between each change (in milliseconds)
-  
-    let startTime = Date.now();
-  
-    // Use setInterval to rapidly cycle through dinner options
-    const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * dinners.length);
-      resultElement.textContent = dinners[randomIndex];
-  
-      // Stop the interval after the duration has passed
-      if (Date.now() - startTime >= duration) {
-        clearInterval(interval);
-  
-        // Pick the final dinner option
-        const finalIndex = Math.floor(Math.random() * dinners.length);
-        resultElement.textContent = dinners[finalIndex];
-      }
-    }, intervalTime);
-  }
-  
-  // Add event listener to the button
-  pickDinnerButton.addEventListener("click", pickDinner);
+  // Get References to Elements
+const dinnerTab = document.getElementById("dinner-tab");
+const sweetsTab = document.getElementById("sweets-tab");
+const dinnerSpinner = document.getElementById("dinner-spinner");
+const sweetsSpinner = document.getElementById("sweets-spinner");
+const pickDinnerButton = document.getElementById("pick-dinner");
+const pickSweetsButton = document.getElementById("pick-sweets");
+const dinnerResult = document.getElementById("dinner-result");
+const sweetsResult = document.getElementById("sweets-result");
+
+// Function to Switch Tabs
+function switchTab(selectedTab, selectedSpinner) {
+  // Remove active class from all tabs
+  dinnerTab.classList.remove("active");
+  sweetsTab.classList.remove("active");
+
+  // Hide all spinners
+  dinnerSpinner.classList.add("hidden");
+  sweetsSpinner.classList.add("hidden");
+
+  // Add active class to the selected tab and show the corresponding spinner
+  selectedTab.classList.add("active");
+  selectedSpinner.classList.remove("hidden");
+}
+
+// Event Listeners for Tabs
+dinnerTab.addEventListener("click", () => {
+  switchTab(dinnerTab, dinnerSpinner);
+});
+
+sweetsTab.addEventListener("click", () => {
+  switchTab(sweetsTab, sweetsSpinner);
+});
+
+// Function to Pick a Random Option
+function pickRandom(options, resultElement) {
+  resultElement.textContent = ""; // Clear the result text
+  resultElement.classList.remove("visible"); // Hide the result initially
+
+  const duration = 900; // 900 milliseconds
+  const intervalTime = 50; // Time between each change (in milliseconds)
+
+  let startTime = Date.now();
+
+  const interval = setInterval(() => {
+    const randomIndex = Math.floor(Math.random() * options.length);
+    resultElement.textContent = options[randomIndex];
+
+    if (Date.now() - startTime >= duration) {
+      clearInterval(interval);
+      const finalIndex = Math.floor(Math.random() * options.length);
+      resultElement.textContent = options[finalIndex];
+      resultElement.classList.add("visible"); // Show the result
+    }
+  }, intervalTime);
+}
+
+// Event Listeners for Buttons
+pickDinnerButton.addEventListener("click", () => {
+  pickRandom(dinners, dinnerResult);
+});
+
+pickSweetsButton.addEventListener("click", () => {
+  pickRandom(sweets, sweetsResult);
+});

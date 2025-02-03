@@ -8,10 +8,26 @@
 </head>
 <body>
   <div class="container">
-    <h1>Dinner Spinner 🍽️</h1>
-    <p>Click the button to randomly select a dinner option</p>
-    <button id="pick-dinner">Give it a spin!</button>
-    <h2 id="result"></h2>
+    <!-- Tab Buttons -->
+    <div class="tabs">
+      <button id="dinner-tab" class="tab-button active">Dinner</button>
+      <button id="sweets-tab" class="tab-button">Sweets</button>
+    </div>
+     <!-- Dinner Spinner -->
+     <div id="dinner-spinner" class="spinner-content">
+      <h1>Dinner Spinner 🍽️</h1>
+      <p>Click the button to randomly select a dinner option!</p>
+      <button id="pick-dinner">Give it a spin</button>
+      <h2 id="dinner-result"></h2>
+    </div>
+
+    <!-- Sweets Spinner -->
+    <div id="sweets-spinner" class="spinner-content hidden">
+      <h1>Sweets Spinner 🍰</h1>
+      <p>Click the button to randomly select a sweet treat!</p>
+      <button id="pick-sweets">Give it a spin</button>
+      <h2 id="sweets-result"></h2>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>

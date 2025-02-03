@@ -75,10 +75,10 @@ body {
     font-size: 24px;
     color: #007bff;
     margin-top: 20px;
-    visibility: hidden;
+    visibility: hidden; /* Hide the result initially but reserve space */
   }
   
   #dinner-result.visible,
   #sweets-result.visible {
-    visibility: visible;
+    visibility: visible; /* Show the result when the class is added */
   }

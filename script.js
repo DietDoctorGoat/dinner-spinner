@@ -101,11 +101,11 @@ sweetsTab.addEventListener("click", () => {
 
 // Function to Pick a Random Option with Flipping Effect
 function pickRandom(options, resultElement) {
-  resultElement.textContent = "active"; // Clear the result text
+  resultElement.textContent = ""; // Clear the result text
   resultElement.classList.remove("visible"); // Hide the result initially
 
   const duration = 900; // 900 milliseconds
-  const intervalTime = 50; // Time between each change (in milliseconds)
+  const intervalTime = 30; // Time between each change (in milliseconds)
 
   let startTime = Date.now();
 

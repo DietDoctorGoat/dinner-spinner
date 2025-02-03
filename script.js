@@ -99,7 +99,7 @@ sweetsTab.addEventListener("click", () => {
   switchTab(sweetsTab, sweetsSpinner);
 });
 
-// Function to Pick a Random Option
+// Function to Pick a Random Option with Flipping Effect
 function pickRandom(options, resultElement) {
   resultElement.textContent = ""; // Clear the result text
   resultElement.classList.remove("visible"); // Hide the result initially
@@ -109,12 +109,16 @@ function pickRandom(options, resultElement) {
 
   let startTime = Date.now();
 
+  // Use setInterval to rapidly cycle through options
   const interval = setInterval(() => {
     const randomIndex = Math.floor(Math.random() * options.length);
     resultElement.textContent = options[randomIndex];
 
+    // Stop the interval after the duration has passed
     if (Date.now() - startTime >= duration) {
       clearInterval(interval);
+
+      // Pick the final option
       const finalIndex = Math.floor(Math.random() * options.length);
       resultElement.textContent = options[finalIndex];
       resultElement.classList.add("visible"); // Show the result

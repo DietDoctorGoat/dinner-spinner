@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px; /* Increased padding to make the frame taller */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Optional: Set a fixed width for better layout */
+    min-height: 300px; /* Set a minimum height to prevent jumping */
+
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px; /* Added spacing below the title */
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px; /* Added spacing below the button */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #result {
+    font-size: 24px;
+    color: #007bff;
+    margin-top: 20px; /* Ensure the result appears below the button */
+  }
